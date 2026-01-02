@@ -123,6 +123,9 @@ async def get_me(current_user: dict = Depends(get_current_user)):
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     
+    # Add user_id to response (needed by frontend)
+    user["user_id"] = current_user["user_id"]
+    
     # If teacher, include quota info
     if current_user["role"] == UserRole.GURU:
         teacher = await db.teachers.find_one({"user_id": current_user["user_id"]}, {"_id": 0})
