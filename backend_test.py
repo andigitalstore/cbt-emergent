@@ -15,8 +15,8 @@ BACKEND_URL = "https://testpro-9.preview.emergentagent.com/api"
 # Test credentials from review request
 TEACHER_EMAIL = "guru1@test.com"
 TEACHER_PASSWORD = "password123"
-SUPERADMIN_EMAIL = "superadmin@test.com"
-SUPERADMIN_PASSWORD = "superadmin123"
+SUPERADMIN_EMAIL = "admin@cbtpro.com"  # Use the actual superadmin created on startup
+SUPERADMIN_PASSWORD = "admin123"
 STUDENT_TOKEN = "TEST123"
 
 class CBTAPITester:
