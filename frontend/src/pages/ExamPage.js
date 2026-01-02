@@ -217,23 +217,23 @@ const ExamPage = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col" data-testid="exam-container">
       {/* Fixed Timer Header */}
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/50 px-6 py-4">
+      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/50 px-4 md:px-6 py-3 md:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div>
-            <h1 className="font-heading font-semibold text-xl" data-testid="exam-title">{examData.title}</h1>
-            <p className="text-sm text-muted-foreground">
-              Pertanyaan {currentQuestionIndex + 1} dari {examData.questions.length}
+          <div className="flex-1 min-w-0">
+            <h1 className="font-heading font-semibold text-base md:text-xl truncate" data-testid="exam-title">{examData.title}</h1>
+            <p className="text-xs md:text-sm text-muted-foreground">
+              Soal {currentQuestionIndex + 1}/{examData.questions.length}
             </p>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             {violations > 0 && (
-              <div className="flex items-center gap-2 text-destructive" data-testid="violations-count">
-                <AlertTriangle className="h-5 w-5" />
-                <span className="font-medium">{violations} Pelanggaran</span>
+              <div className="flex items-center gap-1 md:gap-2 text-destructive" data-testid="violations-count">
+                <AlertTriangle className="h-4 w-4 md:h-5 md:w-5" />
+                <span className="font-medium text-sm md:text-base hidden sm:inline">{violations}</span>
               </div>
             )}
-            <div className="flex items-center gap-2 text-lg font-semibold" data-testid="timer">
-              <Clock className="h-5 w-5" />
+            <div className="flex items-center gap-1 md:gap-2 text-base md:text-lg font-semibold" data-testid="timer">
+              <Clock className="h-4 w-4 md:h-5 md:w-5" />
               <span className={timeLeft < 300 ? 'text-destructive' : 'text-foreground'}>
                 {formatTime(timeLeft)}
               </span>
@@ -242,9 +242,9 @@ const ExamPage = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex">
+      <div className="flex-1 flex flex-col lg:flex-row">
         {/* Main Content */}
-        <div className="flex-1 p-6 overflow-y-auto">
+        <div className="flex-1 p-4 md:p-6 overflow-y-auto pb-24 lg:pb-6">
           <div className="max-w-3xl mx-auto">
             <Card className="p-6 mb-6" data-testid="question-card">
               <div className="mb-6">
