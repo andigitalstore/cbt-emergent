@@ -131,6 +131,9 @@ backend:
       - working: true
         agent: "main"
         comment: "GET /api/results/exam/{exam_id} returns all student sessions with scores. Tested via curl."
+      - working: true
+        agent: "testing"
+        comment: "Comprehensive API testing: GET /api/results/exam/{exam_id} returns 4 student sessions correctly. CSV export also working (340 bytes output)."
 
   - task: "Student Session API"
     implemented: true
