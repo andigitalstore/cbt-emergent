@@ -65,6 +65,7 @@ function App() {
                     <Route path="questions" element={<QuestionBank />} />
                     <Route path="questions/create" element={<CreateQuestion />} />
                     <Route path="exams" element={<ExamsList />} />
+                    <Route path="exams/create" element={<CreateExam />} />
                   </Routes>
                 </ProtectedRoute>
               }
