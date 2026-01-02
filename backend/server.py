@@ -401,15 +401,19 @@ async def create_exam(exam: ExamCreate, current_user: dict = Depends(require_rol
 @api_router.get("/exams/list")
 async def list_exams(current_user: dict = Depends(require_role([UserRole.GURU]))):
     db = get_database()
-    exams = await db.exams.find({"teacher_id": current_user["user_id"]}, {"_id": 0}).to_list(1000)
+    exams = await db.exams.find({"teacher_id": current_user["user_id"]}).to_list(1000)
+    # Convert _id to exam_id
+    for e in exams:
+        e["exam_id"] = e.pop("_id")
     return exams
 
 @api_router.get("/exams/{exam_id}")
 async def get_exam(exam_id: str, current_user: dict = Depends(require_role([UserRole.GURU]))):
     db = get_database()
-    exam = await db.exams.find_one({"_id": exam_id, "teacher_id": current_user["user_id"]}, {"_id": 0})
+    exam = await db.exams.find_one({"_id": exam_id, "teacher_id": current_user["user_id"]})
     if not exam:
         raise HTTPException(status_code=404, detail="Exam not found")
+    exam["exam_id"] = exam.pop("_id")
     return exam
 
 @api_router.delete("/exams/{exam_id}")
