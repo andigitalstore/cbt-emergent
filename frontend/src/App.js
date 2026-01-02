@@ -72,6 +72,8 @@ function App() {
                     <Route path="exams" element={<ExamsList />} />
                     <Route path="exams/create" element={<CreateExam />} />
                     <Route path="exams/:examId/monitor" element={<LiveMonitor />} />
+                    <Route path="exams/:examId/results" element={<ExamResults />} />
+                    <Route path="subscription" element={<SubscriptionPage />} />
                   </Routes>
                 </ProtectedRoute>
               }
