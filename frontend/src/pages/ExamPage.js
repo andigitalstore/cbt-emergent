@@ -215,25 +215,25 @@ const ExamPage = () => {
   };
 
   return (
-    <div className=\"min-h-screen bg-white flex flex-col\" data-testid=\"exam-container\">
+    <div className="min-h-screen bg-white flex flex-col" data-testid="exam-container">
       {/* Fixed Timer Header */}
-      <div className=\"sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/50 px-6 py-4\">
-        <div className=\"max-w-7xl mx-auto flex items-center justify-between\">
+      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border/50 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
-            <h1 className=\"font-heading font-semibold text-xl\" data-testid=\"exam-title\">{examData.title}</h1>
-            <p className=\"text-sm text-muted-foreground\">
+            <h1 className="font-heading font-semibold text-xl" data-testid="exam-title">{examData.title}</h1>
+            <p className="text-sm text-muted-foreground">
               Pertanyaan {currentQuestionIndex + 1} dari {examData.questions.length}
             </p>
           </div>
-          <div className=\"flex items-center gap-4\">
+          <div className="flex items-center gap-4">
             {violations > 0 && (
-              <div className=\"flex items-center gap-2 text-destructive\" data-testid=\"violations-count\">
-                <AlertTriangle className=\"h-5 w-5\" />
-                <span className=\"font-medium\">{violations} Pelanggaran</span>
+              <div className="flex items-center gap-2 text-destructive" data-testid="violations-count">
+                <AlertTriangle className="h-5 w-5" />
+                <span className="font-medium">{violations} Pelanggaran</span>
               </div>
             )}
-            <div className=\"flex items-center gap-2 text-lg font-semibold\" data-testid=\"timer\">
-              <Clock className=\"h-5 w-5\" />
+            <div className="flex items-center gap-2 text-lg font-semibold" data-testid="timer">
+              <Clock className="h-5 w-5" />
               <span className={timeLeft < 300 ? 'text-destructive' : 'text-foreground'}>
                 {formatTime(timeLeft)}
               </span>
@@ -242,23 +242,23 @@ const ExamPage = () => {
         </div>
       </div>
 
-      <div className=\"flex-1 flex\">
+      <div className="flex-1 flex">
         {/* Main Content */}
-        <div className=\"flex-1 p-6 overflow-y-auto\">
-          <div className=\"max-w-3xl mx-auto\">
-            <Card className=\"p-6 mb-6\" data-testid=\"question-card\">
-              <div className=\"mb-6\">
-                <div className=\"flex items-start justify-between mb-4\">
-                  <h2 className=\"text-lg font-medium\">
+        <div className="flex-1 p-6 overflow-y-auto">
+          <div className="max-w-3xl mx-auto">
+            <Card className="p-6 mb-6" data-testid="question-card">
+              <div className="mb-6">
+                <div className="flex items-start justify-between mb-4">
+                  <h2 className="text-lg font-medium">
                     {currentQuestionIndex + 1}. {currentQuestion.question_text}
                   </h2>
                   <Button
-                    variant=\"outline\"
-                    size=\"sm\"
+                    variant="outline"
+                    size="sm"
                     onClick={() => markDoubtful(currentQuestion.question_id)}
-                    data-testid=\"mark-doubtful-btn\"
+                    data-testid="mark-doubtful-btn"
                   >
-                    <HelpCircle className=\"h-4 w-4 mr-2\" />
+                    <HelpCircle className="h-4 w-4 mr-2" />
                     {questionStatus[currentQuestion.question_id] === 'doubtful' ? 'Hapus Ragu' : 'Ragu-ragu'}
                   </Button>
                 </div>
@@ -267,12 +267,12 @@ const ExamPage = () => {
                   <RadioGroup
                     value={answers[currentQuestion.question_id] || ''}
                     onValueChange={(value) => handleAnswerChange(currentQuestion.question_id, value)}
-                    className=\"space-y-3 mt-4\"
+                    className="space-y-3 mt-4"
                   >
                     {currentQuestion.options.map((option, idx) => (
-                      <div key={idx} className=\"flex items-center space-x-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors\">
+                      <div key={idx} className="flex items-center space-x-3 p-3 rounded-lg border hover:bg-accent/50 transition-colors">
                         <RadioGroupItem value={option} id={`option-${idx}`} data-testid={`option-${idx}`} />
-                        <Label htmlFor={`option-${idx}`} className=\"flex-1 cursor-pointer\">
+                        <Label htmlFor={`option-${idx}`} className="flex-1 cursor-pointer">
                           {option}
                         </Label>
                       </div>
@@ -284,10 +284,10 @@ const ExamPage = () => {
                   <Textarea
                     value={answers[currentQuestion.question_id] || ''}
                     onChange={(e) => handleAnswerChange(currentQuestion.question_id, e.target.value)}
-                    placeholder=\"Tulis jawaban Anda di sini...\"
+                    placeholder="Tulis jawaban Anda di sini..."
                     rows={8}
-                    className=\"mt-4\"
-                    data-testid=\"essay-textarea\"
+                    className="mt-4"
+                    data-testid="essay-textarea"
                   />
                 )}
 
@@ -295,21 +295,21 @@ const ExamPage = () => {
                   <Input
                     value={answers[currentQuestion.question_id] || ''}
                     onChange={(e) => handleAnswerChange(currentQuestion.question_id, e.target.value)}
-                    placeholder=\"Masukkan urutan jawaban (misal: A-B-C-D)\"
-                    className=\"mt-4\"
-                    data-testid=\"sentence-order-input\"
+                    placeholder="Masukkan urutan jawaban (misal: A-B-C-D)"
+                    className="mt-4"
+                    data-testid="sentence-order-input"
                   />
                 )}
               </div>
             </Card>
 
             {/* Navigation Buttons */}
-            <div className=\"flex justify-between gap-4\">
+            <div className="flex justify-between gap-4">
               <Button
-                variant=\"outline\"
+                variant="outline"
                 onClick={() => setCurrentQuestionIndex(prev => Math.max(0, prev - 1))}
                 disabled={currentQuestionIndex === 0}
-                data-testid=\"prev-question-btn\"
+                data-testid="prev-question-btn"
               >
                 Sebelumnya
               </Button>
@@ -317,15 +317,15 @@ const ExamPage = () => {
               {currentQuestionIndex === examData.questions.length - 1 ? (
                 <Button
                   onClick={() => setShowSubmitConfirm(true)}
-                  className=\"rounded-full\"
-                  data-testid=\"submit-exam-btn\"
+                  className="rounded-full"
+                  data-testid="submit-exam-btn"
                 >
                   Submit Ujian
                 </Button>
               ) : (
                 <Button
                   onClick={() => setCurrentQuestionIndex(prev => Math.min(examData.questions.length - 1, prev + 1))}
-                  data-testid=\"next-question-btn\"
+                  data-testid="next-question-btn"
                 >
                   Selanjutnya
                 </Button>
@@ -335,13 +335,13 @@ const ExamPage = () => {
         </div>
 
         {/* Question Navigation Sidebar */}
-        <div className=\"w-80 border-l bg-muted/30 p-6 overflow-y-auto\">
-          <h3 className=\"font-heading font-semibold mb-4\">Navigasi Soal</h3>
-          <div className=\"grid grid-cols-5 gap-2\">
+        <div className="w-80 border-l bg-muted/30 p-6 overflow-y-auto">
+          <h3 className="font-heading font-semibold mb-4">Navigasi Soal</h3>
+          <div className="grid grid-cols-5 gap-2">
             {examData.questions.map((q, idx) => (
               <Button
                 key={q.question_id}
-                variant=\"outline\"
+                variant="outline"
                 className={`h-10 w-10 p-0 ${getQuestionStatusColor(idx)}`}
                 onClick={() => setCurrentQuestionIndex(idx)}
                 data-testid={`nav-question-${idx + 1}`}
@@ -351,17 +351,17 @@ const ExamPage = () => {
             ))}
           </div>
 
-          <div className=\"mt-6 space-y-2 text-sm\">
-            <div className=\"flex items-center gap-2\">
-              <div className=\"h-6 w-6 rounded bg-emerald-500\"></div>
+          <div className="mt-6 space-y-2 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="h-6 w-6 rounded bg-emerald-500"></div>
               <span>Sudah dijawab</span>
             </div>
-            <div className=\"flex items-center gap-2\">
-              <div className=\"h-6 w-6 rounded bg-amber-500\"></div>
+            <div className="flex items-center gap-2">
+              <div className="h-6 w-6 rounded bg-amber-500"></div>
               <span>Ragu-ragu</span>
             </div>
-            <div className=\"flex items-center gap-2\">
-              <div className=\"h-6 w-6 rounded bg-slate-200\"></div>
+            <div className="flex items-center gap-2">
+              <div className="h-6 w-6 rounded bg-slate-200"></div>
               <span>Belum dijawab</span>
             </div>
           </div>
@@ -370,30 +370,30 @@ const ExamPage = () => {
 
       {/* Violation Alert */}
       <AlertDialog open={showViolationAlert} onOpenChange={setShowViolationAlert}>
-        <AlertDialogContent data-testid=\"violation-alert\">
+        <AlertDialogContent data-testid="violation-alert">
           <AlertDialogHeader>
-            <AlertDialogTitle className=\"flex items-center gap-2 text-destructive\">
-              <AlertTriangle className=\"h-5 w-5\" />
+            <AlertDialogTitle className="flex items-center gap-2 text-destructive">
+              <AlertTriangle className="h-5 w-5" />
               Peringatan: Pelanggaran Terdeteksi!
             </AlertDialogTitle>
             <AlertDialogDescription>
               Anda telah berpindah tab atau keluar dari aplikasi. Pelanggaran: {violations}/3
               {violations >= 3 && (
-                <span className=\"block mt-2 text-destructive font-semibold\">
+                <span className="block mt-2 text-destructive font-semibold">
                   Ujian akan disubmit otomatis dengan nilai 0!
                 </span>
               )}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction data-testid=\"acknowledge-violation-btn\">Saya Mengerti</AlertDialogAction>
+            <AlertDialogAction data-testid="acknowledge-violation-btn">Saya Mengerti</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
 
       {/* Submit Confirmation */}
       <AlertDialog open={showSubmitConfirm} onOpenChange={setShowSubmitConfirm}>
-        <AlertDialogContent data-testid=\"submit-confirm-dialog\">
+        <AlertDialogContent data-testid="submit-confirm-dialog">
           <AlertDialogHeader>
             <AlertDialogTitle>Konfirmasi Submit Ujian</AlertDialogTitle>
             <AlertDialogDescription>
@@ -401,10 +401,10 @@ const ExamPage = () => {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <Button variant=\"outline\" onClick={() => setShowSubmitConfirm(false)} data-testid=\"cancel-submit-btn\">
+            <Button variant="outline" onClick={() => setShowSubmitConfirm(false)} data-testid="cancel-submit-btn">
               Batal
             </Button>
-            <AlertDialogAction onClick={handleSubmit} data-testid=\"confirm-submit-btn\">
+            <AlertDialogAction onClick={handleSubmit} data-testid="confirm-submit-btn">
               Ya, Submit
             </AlertDialogAction>
           </AlertDialogFooter>
