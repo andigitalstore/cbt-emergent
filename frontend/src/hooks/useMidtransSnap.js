@@ -1,7 +1,7 @@
 import { useEffect, useCallback } from 'react';
 
 export const useMidtransSnap = () => {
-  const clientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY || 'Mid-client-syyWCp8rR65DBR44';
+  const clientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY || 'SB-Mid-client-eeByRpNfqADwDGRW';
 
   useEffect(() => {
     const script = document.createElement('script');
