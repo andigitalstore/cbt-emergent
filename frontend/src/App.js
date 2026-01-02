@@ -33,7 +33,12 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
   return children;
 };
 
-// Placeholder components for teacher and superadmin dashboards
+// Import superadmin pages
+import SuperadminDashboard from './pages/superadmin/SuperadminDashboard';
+import PendingUsers from './pages/superadmin/PendingUsers';
+import AllTeachers from './pages/superadmin/AllTeachers';
+
+// Placeholder component for teacher dashboard
 const TeacherDashboard = () => {
   const { user, logout } = useAuth();
   
@@ -81,59 +86,6 @@ const TeacherDashboard = () => {
             <li>• Live Monitoring Siswa</li>
             <li>• Export Hasil ke CSV</li>
             <li>• Berlangganan Paket Premium</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const SuperadminDashboard = () => {
-  const { user, logout } = useAuth();
-  
-  return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-heading font-bold">Dashboard Superadmin</h1>
-            <p className="text-muted-foreground">Selamat datang, {user?.first_name}!</p>
-          </div>
-          <button
-            onClick={logout}
-            className="px-4 py-2 bg-destructive text-white rounded-lg hover:bg-destructive/90"
-          >
-            Logout
-          </button>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-6 bg-white rounded-xl border shadow-sm">
-            <h3 className="font-semibold mb-2">Guru Pending</h3>
-            <p className="text-2xl font-bold text-primary">0</p>
-            <p className="text-sm text-muted-foreground">Menunggu approval</p>
-          </div>
-          
-          <div className="p-6 bg-white rounded-xl border shadow-sm">
-            <h3 className="font-semibold mb-2">Total Guru</h3>
-            <p className="text-2xl font-bold text-primary">0</p>
-            <p className="text-sm text-muted-foreground">Guru aktif</p>
-          </div>
-          
-          <div className="p-6 bg-white rounded-xl border shadow-sm">
-            <h3 className="font-semibold mb-2">Langganan Premium</h3>
-            <p className="text-2xl font-bold text-primary">0</p>
-            <p className="text-sm text-muted-foreground">Guru berlangganan</p>
-          </div>
-        </div>
-
-        <div className="mt-8 p-6 bg-white rounded-xl border shadow-sm">
-          <h2 className="text-xl font-heading font-semibold mb-4">Fitur Akan Datang</h2>
-          <ul className="space-y-2 text-muted-foreground">
-            <li>• Approval Pendaftaran Guru</li>
-            <li>• Manajemen User</li>
-            <li>• Setting Harga Paket</li>
-            <li>• Statistik Platform</li>
           </ul>
         </div>
       </div>
