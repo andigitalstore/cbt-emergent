@@ -427,7 +427,7 @@ async def delete_exam(exam_id: str, current_user: dict = Depends(require_role([U
 @api_router.post("/exams/validate-token")
 async def validate_token(data: dict):
     db = get_database()
-    exam = await db.exams.find_one({"token": data["token"]}, {"_id": 0})
+    exam = await db.exams.find_one({"token": data["token"]})
     if not exam:
         raise HTTPException(status_code=404, detail="Invalid token")
     
@@ -435,7 +435,7 @@ async def validate_token(data: dict):
         raise HTTPException(status_code=400, detail="Exam is not active")
     
     return {
-        "exam_id": exam["exam_id"] if "exam_id" in exam else exam.get("_id"),
+        "exam_id": exam["_id"],
         "title": exam["title"],
         "duration_minutes": exam["duration_minutes"]
     }
@@ -448,7 +448,10 @@ async def live_monitor(exam_id: str, current_user: dict = Depends(require_role([
     if not exam:
         raise HTTPException(status_code=404, detail="Exam not found")
     
-    sessions = await db.exam_sessions.find({"exam_id": exam_id}, {"_id": 0}).to_list(1000)
+    sessions = await db.exam_sessions.find({"exam_id": exam_id}).to_list(1000)
+    # Convert _id to session_id
+    for s in sessions:
+        s["session_id"] = s.pop("_id")
     return sessions
 
 # ==================== STUDENT EXAM ====================
