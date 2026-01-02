@@ -9,6 +9,7 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ExamPage from './pages/ExamPage';
+import ExamResultPage from './pages/ExamResultPage';
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {
