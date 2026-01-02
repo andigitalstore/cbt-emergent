@@ -39,6 +39,7 @@ import QuestionBank from './pages/teacher/QuestionBank';
 import CreateQuestion from './pages/teacher/CreateQuestion';
 import ExamsList from './pages/teacher/ExamsList';
 import CreateExam from './pages/teacher/CreateExam';
+import LiveMonitor from './pages/teacher/LiveMonitor';
 
 // Import superadmin pages
 import SuperadminDashboard from './pages/superadmin/SuperadminDashboard';
