@@ -310,6 +310,7 @@ const ExamPage = () => {
                 onClick={() => setCurrentQuestionIndex(prev => Math.max(0, prev - 1))}
                 disabled={currentQuestionIndex === 0}
                 data-testid="prev-question-btn"
+                className="flex-1 md:flex-initial"
               >
                 Sebelumnya
               </Button>
@@ -317,7 +318,7 @@ const ExamPage = () => {
               {currentQuestionIndex === examData.questions.length - 1 ? (
                 <Button
                   onClick={() => setShowSubmitConfirm(true)}
-                  className="rounded-full"
+                  className="rounded-full flex-1 md:flex-initial"
                   data-testid="submit-exam-btn"
                 >
                   Submit Ujian
@@ -326,6 +327,7 @@ const ExamPage = () => {
                 <Button
                   onClick={() => setCurrentQuestionIndex(prev => Math.min(examData.questions.length - 1, prev + 1))}
                   data-testid="next-question-btn"
+                  className="flex-1 md:flex-initial"
                 >
                   Selanjutnya
                 </Button>
@@ -334,8 +336,8 @@ const ExamPage = () => {
           </div>
         </div>
 
-        {/* Question Navigation Sidebar */}
-        <div className="w-80 border-l bg-muted/30 p-6 overflow-y-auto">
+        {/* Question Navigation Sidebar - Desktop only, Mobile shows at bottom */}
+        <div className="hidden lg:block w-80 border-l bg-muted/30 p-6 overflow-y-auto">
           <h3 className="font-heading font-semibold mb-4">Navigasi Soal</h3>
           <div className="grid grid-cols-5 gap-2">
             {examData.questions.map((q, idx) => (
@@ -363,6 +365,38 @@ const ExamPage = () => {
             <div className="flex items-center gap-2">
               <div className="h-6 w-6 rounded bg-slate-200"></div>
               <span>Belum dijawab</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation - Fixed at bottom */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-border shadow-lg z-40">
+          <div className="p-3">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-xs font-medium text-muted-foreground">Navigasi Soal</span>
+              <div className="flex gap-2">
+                <div className="flex items-center gap-1">
+                  <div className="h-3 w-3 rounded bg-emerald-500"></div>
+                  <span className="text-xs">Selesai</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <div className="h-3 w-3 rounded bg-amber-500"></div>
+                  <span className="text-xs">Ragu</span>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-10 gap-1.5 max-h-32 overflow-y-auto">
+              {examData.questions.map((q, idx) => (
+                <Button
+                  key={q.question_id}
+                  variant="outline"
+                  className={`h-8 w-full p-0 text-xs ${getQuestionStatusColor(idx)}`}
+                  onClick={() => setCurrentQuestionIndex(idx)}
+                  data-testid={`mobile-nav-question-${idx + 1}`}
+                >
+                  {idx + 1}
+                </Button>
+              ))}
             </div>
           </div>
         </div>
