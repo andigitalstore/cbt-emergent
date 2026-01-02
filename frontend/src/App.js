@@ -59,7 +59,12 @@ function App() {
               path="/teacher/*"
               element={
                 <ProtectedRoute allowedRoles={['guru']}>
-                  <TeacherDashboard />
+                  <Routes>
+                    <Route index element={<TeacherDashboard />} />
+                    <Route path="questions" element={<QuestionBank />} />
+                    <Route path="questions/create" element={<CreateQuestion />} />
+                    <Route path="exams" element={<ExamsList />} />
+                  </Routes>
                 </ProtectedRoute>
               }
             />
