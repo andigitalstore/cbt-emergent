@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "name": "CBT Pro",
+    "persona": "E1 - The Anti-AI Designer",
+    "tone": "Modern, Focused, Encouraging, Efficient",
+    "archetype": "Archetype 4 (Swiss & High-Contrast) with Archetype 3 (Pastel) Accents"
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Outfit, sans-serif",
+      "body": "Plus Jakarta Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "weights": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "sizes": {
+      "h1": "text-4xl md:text-6xl tracking-tight font-bold",
+      "h2": "text-3xl md:text-4xl tracking-tight font-semibold",
+      "h3": "text-2xl md:text-3xl font-semibold",
+      "body_lg": "text-lg leading-relaxed",
+      "body_base": "text-base leading-relaxed",
+      "caption": "text-sm text-muted-foreground"
+    },
+    "instructions": "Import fonts via Google Fonts in index.html or CSS. Use 'Outfit' for all headings (h1-h3) and 'Plus Jakarta Sans' for body text."
+  },
+  "colors": {
+    "palette": {
+      "primary": "hsl(250, 95%, 64%)",
+      "primary_foreground": "hsl(0, 0%, 100%)",
+      "secondary": "hsl(30, 90%, 60%)",
+      "secondary_foreground": "hsl(0, 0%, 100%)",
+      "background": "hsl(210, 20%, 98%)",
+      "foreground": "hsl(222, 47%, 11%)",
+      "card": "hsl(0, 0%, 100%)",
+      "card_foreground": "hsl(222, 47%, 11%)",
+      "muted": "hsl(210, 40%, 96%)",
+      "muted_foreground": "hsl(215, 16%, 47%)",
+      "accent": "hsl(250, 95%, 96%)",
+      "accent_foreground": "hsl(250, 95%, 64%)",
+      "destructive": "hsl(0, 84%, 60%)",
+      "destructive_foreground": "hsl(0, 0%, 100%)",
+      "border": "hsl(214, 32%, 91%)",
+      "input": "hsl(214, 32%, 91%)",
+      "ring": "hsl(250, 95%, 64%)"
+    },
+    "usage": {
+      "dashboard_bg": "bg-background",
+      "sidebar_bg": "bg-white border-r border-border",
+      "exam_bg": "bg-white",
+      "timer_bg": "bg-white/80 backdrop-blur-md border-b border-border/50"
+    }
+  },
+  "visual_enhancers": {
+    "radius": "0.75rem",
+    "shadows": {
+      "card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+      "hover": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05)",
+      "glow": "0 0 20px -5px hsl(250, 95%, 64%, 0.3)"
+    },
+    "gradients": {
+      "hero": "bg-gradient-to-br from-indigo-50 via-white to-orange-50",
+      "primary_btn": "bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700"
+    },
+    "glassmorphism": "bg-white/70 backdrop-blur-lg border border-white/20 shadow-sm"
+  },
+  "layout_strategies": {
+    "dashboard": {
+      "type": "Sidebar + Topbar",
+      "structure": "Fixed sidebar (w-64) + Scrollable main content. Use 'Bento' grid for dashboard widgets.",
+      "spacing": "p-6 md:p-8 gap-6"
+    },
+    "exam_interface": {
+      "type": "Fullscreen Focus",
+      "structure": "Split view: Left (Question 70%) | Right (Nav Grid 30%). Mobile: Stacked.",
+      "features": "Sticky Header for Timer. Hidden Sidebar on mobile."
+    },
+    "landing_page": {
+      "type": "Single Column + Sections",
+      "structure": "Hero (Center aligned) -> Features (Grid) -> Pricing (Cards) -> Footer",
+      "max_width": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "rounded-full font-medium shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]",
+      "secondary": "rounded-full border-2 border-slate-200 bg-transparent hover:bg-slate-50 text-slate-700",
+      "ghost": "rounded-lg hover:bg-indigo-50 text-indigo-600"
+    },
+    "cards": {
+      "default": "bg-white rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow duration-200",
+      "interactive": "cursor-pointer hover:border-indigo-200 hover:ring-2 hover:ring-indigo-50"
+    },
+    "inputs": {
+      "default": "rounded-lg border-slate-200 bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-100 transition-all"
+    },
+    "badges": {
+      "success": "bg-emerald-100 text-emerald-700 border-emerald-200",
+      "warning": "bg-amber-100 text-amber-700 border-amber-200",
+      "neutral": "bg-slate-100 text-slate-600 border-slate-200"
+    }
+  },
+  "image_assets": {
+    "landing_hero": {
+      "url": "https://images.unsplash.com/photo-1742549586702-c23994895082?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHwxfHxpbmRvbmVzaWFuJTIwc3R1ZGVudHMlMjBzdHVkeWluZyUyMGNsYXNzcm9vbXxlbnwwfHx8fDE3NjczNDYwOTl8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Indonesian students focused on exam",
+      "usage": "Hero section background or main visual"
+    },
+    "teacher_dashboard": {
+      "url": "https://images.unsplash.com/photo-1594256347468-5cd43df8fbaf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHx0ZWFjaGVyJTIwdXNpbmclMjBsYXB0b3AlMjBtb2Rlcm4lMjBjbGFzc3Jvb218ZW58MHx8fHwxNzY3MzQ2MTAxfDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Teacher managing class digitally",
+      "usage": "Teacher dashboard empty state or feature highlight"
+    },
+    "collaboration": {
+      "url": "https://images.unsplash.com/photo-1729855184497-494fdcb24d7d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzF8MHwxfHNlYXJjaHw0fHxpbmRvbmVzaWFuJTIwc3R1ZGVudHMlMjBzdHVkeWluZyUyMGNsYXNzcm9vbXxlbnwwfHx8fDE3NjczNDYwOTl8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Group study session",
+      "usage": "Pricing or About section"
+    }
+  },
+  "motion": {
+    "page_transition": {
+      "initial": { "opacity": 0, "y": 10 },
+      "animate": { "opacity": 1, "y": 0 },
+      "exit": { "opacity": 0, "y": -10 },
+      "transition": { "duration": 0.3, "ease": "easeOut" }
+    },
+    "hover_lift": "hover:-translate-y-1 transition-transform duration-200",
+    "micro_interactions": "active:scale-95 transition-transform"
+  },
+  "accessibility": {
+    "contrast": "Ensure all text meets WCAG AA (4.5:1). Use 'text-slate-900' on light backgrounds.",
+    "focus_states": "Visible focus rings on all interactive elements (ring-2 ring-indigo-400).",
+    "aria": "Use aria-labels for icon-only buttons. Use role='alert' for anti-cheat warnings."
+  },
+  "universal_guidelines": [
+    "Do not use 'Inter' font. Use 'Outfit' and 'Plus Jakarta Sans'.",
+    "Avoid full-screen gradients. Use subtle mesh gradients or solid colors.",
+    "Use 'sonner' for all toast notifications.",
+    "All interactive elements MUST have 'data-testid'.",
+    "Use 'lucide-react' for icons.",
+    "Exam interface must be distraction-free: No unnecessary links or decorative animations.",
+    "Anti-cheat warnings must be modal (AlertDialog) and block interaction until acknowledged."
+  ],
+  "instructions_to_main_agent": "1. Update tailwind.config.js with the new color palette and font families. 2. Install 'lucide-react' and 'sonner'. 3. Create the layouts first (DashboardLayout, ExamLayout). 4. Implement the 'Token Login' page with a clean, centered card design. 5. Ensure the Exam Interface handles the 'Fullscreen' request properly using the Fullscreen API."
+}
