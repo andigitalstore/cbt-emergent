@@ -329,7 +329,10 @@ async def create_question(question: QuestionCreate, current_user: dict = Depends
 @api_router.get("/questions/list")
 async def list_questions(current_user: dict = Depends(require_role([UserRole.GURU]))):
     db = get_database()
-    questions = await db.questions.find({"teacher_id": current_user["user_id"]}, {"_id": 0}).to_list(1000)
+    questions = await db.questions.find({"teacher_id": current_user["user_id"]}).to_list(1000)
+    # Convert _id to question_id
+    for q in questions:
+        q["question_id"] = q.pop("_id")
     return questions
 
 @api_router.delete("/questions/{question_id}")
