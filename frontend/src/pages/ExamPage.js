@@ -180,7 +180,8 @@ const ExamPage = () => {
       });
       localStorage.removeItem(`answers_${sessionId}`);
       toast.success(`Ujian berhasil disubmit! Nilai: ${response.data.final_score}`);
-      navigate('/');
+      // Redirect to result page
+      navigate(`/exam/result/${sessionId}`);
     } catch (error) {
       toast.error('Gagal submit ujian');
     }
