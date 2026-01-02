@@ -116,6 +116,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Fixed Midtrans API keys in .env. Subscription create endpoint returns snap_token successfully. Tested via curl."
+      - working: true
+        agent: "testing"
+        comment: "Comprehensive API testing: POST /api/subscription/create returns valid snap_token. Midtrans integration working correctly."
 
   - task: "Exam Results API"
     implemented: true
