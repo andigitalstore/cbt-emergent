@@ -161,6 +161,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Added user_id to /auth/me response. Frontend subscription now works correctly."
+      - working: true
+        agent: "testing"
+        comment: "Comprehensive API testing: GET /api/auth/me returns user_id correctly (0f394a99-eb69-4386-be40-19c35f297696). Authentication flow working."
 
 frontend:
   - task: "Subscription Page with Midtrans Snap"
