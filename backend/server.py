@@ -618,9 +618,10 @@ async def submit_exam(data: SubmitExam):
 @api_router.get("/student/session/{session_id}")
 async def get_session(session_id: str):
     db = get_database()
-    session = await db.exam_sessions.find_one({"_id": session_id}, {"_id": 0})
+    session = await db.exam_sessions.find_one({"_id": session_id})
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
+    session["session_id"] = session.pop("_id")
     return session
 
 # ==================== RESULTS ====================
