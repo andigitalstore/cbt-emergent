@@ -177,6 +177,9 @@ frontend:
       - working: true
         agent: "main"
         comment: "Updated Midtrans client key. Midtrans Snap popup appears on clicking Upgrade ke Pro button. Tested via screenshot."
+      - working: true
+        agent: "testing"
+        comment: "E2E UI Testing: Subscription page loads correctly with Free (Rp 0/bulan) and Pro (Rp 500.000/bulan) plans visible. 'Upgrade ke Pro' button functional and triggers Midtrans Snap popup successfully. Payment integration working as expected."
 
   - task: "Teacher Exam Results Page"
     implemented: true
