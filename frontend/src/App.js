@@ -59,6 +59,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/exam/:sessionId" element={<ExamPage />} />
+            <Route path="/exam/result/:sessionId" element={<ExamResultPage />} />
             
             <Route
               path="/teacher/*"
