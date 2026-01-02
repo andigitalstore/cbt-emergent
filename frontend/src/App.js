@@ -67,6 +67,7 @@ function App() {
                     <Route path="questions/create" element={<CreateQuestion />} />
                     <Route path="exams" element={<ExamsList />} />
                     <Route path="exams/create" element={<CreateExam />} />
+                    <Route path="exams/:examId/monitor" element={<LiveMonitor />} />
                   </Routes>
                 </ProtectedRoute>
               }
