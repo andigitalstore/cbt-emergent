@@ -630,7 +630,10 @@ async def get_exam_results(exam_id: str, current_user: dict = Depends(require_ro
     if not exam:
         raise HTTPException(status_code=404, detail="Exam not found")
     
-    sessions = await db.exam_sessions.find({"exam_id": exam_id}, {"_id": 0}).to_list(1000)
+    sessions = await db.exam_sessions.find({"exam_id": exam_id}).to_list(1000)
+    # Convert _id to session_id
+    for s in sessions:
+        s["session_id"] = s.pop("_id")
     return sessions
 
 @api_router.get("/results/export/{exam_id}")
