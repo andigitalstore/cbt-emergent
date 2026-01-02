@@ -38,6 +38,7 @@ import TeacherDashboard from './pages/teacher/TeacherDashboard';
 import QuestionBank from './pages/teacher/QuestionBank';
 import CreateQuestion from './pages/teacher/CreateQuestion';
 import ExamsList from './pages/teacher/ExamsList';
+import CreateExam from './pages/teacher/CreateExam';
 
 // Import superadmin pages
 import SuperadminDashboard from './pages/superadmin/SuperadminDashboard';
