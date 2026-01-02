@@ -117,7 +117,11 @@ function App() {
               path="/superadmin/*"
               element={
                 <ProtectedRoute allowedRoles={['superadmin']}>
-                  <SuperadminDashboard />
+                  <Routes>
+                    <Route index element={<SuperadminDashboard />} />
+                    <Route path="pending-users" element={<PendingUsers />} />
+                    <Route path="teachers" element={<AllTeachers />} />
+                  </Routes>
                 </ProtectedRoute>
               }
             />
