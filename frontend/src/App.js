@@ -41,6 +41,8 @@ import CreateQuestion from './pages/teacher/CreateQuestion';
 import ExamsList from './pages/teacher/ExamsList';
 import CreateExam from './pages/teacher/CreateExam';
 import LiveMonitor from './pages/teacher/LiveMonitor';
+import ExamResults from './pages/teacher/ExamResults';
+import SubscriptionPage from './pages/teacher/SubscriptionPage';
 
 // Import superadmin pages
 import SuperadminDashboard from './pages/superadmin/SuperadminDashboard';
