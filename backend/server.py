@@ -135,7 +135,10 @@ async def get_me(current_user: dict = Depends(get_current_user)):
 @api_router.get("/superadmin/pending-users")
 async def get_pending_users(current_user: dict = Depends(require_role([UserRole.SUPERADMIN]))):
     db = get_database()
-    pending = await db.users.find({"status": UserStatus.PENDING, "role": UserRole.GURU}, {"_id": 0, "password_hash": 0}).to_list(1000)
+    pending = await db.users.find({"status": UserStatus.PENDING, "role": UserRole.GURU}, {"password_hash": 0}).to_list(1000)
+    # Convert _id to user_id for frontend
+    for user in pending:
+        user["user_id"] = user.pop("_id")
     return pending
 
 @api_router.post("/superadmin/approve-user/{user_id}")
