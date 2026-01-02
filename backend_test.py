@@ -123,7 +123,7 @@ class CBTAPITester:
                 headers=headers,
                 json={
                     "teacher_id": self.teacher_user_id,
-                    "plan_tier": "PRO"
+                    "plan_tier": "pro"  # Use lowercase as per enum
                 }
             )
             
